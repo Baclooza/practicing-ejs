@@ -15,8 +15,24 @@ app.use(express.static("public"));
 
 // Define a defaule route ("/")
 app.get("/", (req, res) => {
-  const person = { name: "Donald Duck", occupation: "plumber", favcolor: "purple" };
+  const person = {
+    name: "Donald Duck",
+    occupation: "plumber",
+    favcolor: "purple",
+  };
   res.render("home", { person });
+});
+
+app.get("/friends", (req, res) => {
+  const friends = ["Mickey", "Goofy", "Minnie", "Daisy"];
+
+  res.render("friends", { friends });
+});
+
+app.get("/movies", (req, res) => {
+  const movies = ["a movie", "a good movie", "a bad movie", "an alright movie"];
+
+  res.render("movies", { movies });
 });
 
 // Start the server on the designated port
